@@ -1,17 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>zwl.learning.spring</groupId>
     <artifactId>learning-spring</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <name>learning-spring Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <junit.version>4.12</junit.version>
-        <spring.version>4.1.7.RELEASE</spring.version>
+        <spring.version>4.3.10.RELEASE</spring.version>
         <aspectj.version>1.8.10</aspectj.version>
 
     </properties>
@@ -45,6 +47,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.4.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--web工程需要包含log4j-web，非web工程不需要-->
         <dependency>
@@ -53,7 +61,6 @@
             <version>2.4.1</version>
             <scope>runtime</scope>
         </dependency>
-
         <!--需要使用log4j2的AsyncLogger需要包含disruptor-->
         <dependency>
             <groupId>com.lmax</groupId>
@@ -68,8 +75,6 @@
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
-
-
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
